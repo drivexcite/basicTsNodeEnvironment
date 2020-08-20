@@ -42,11 +42,7 @@ Once the development container has started, the environment needs some developme
 - And a couple of tools to make the developer experience more streamlined: `ts-node`, to be able to compile ts files and run them in node with a single command; and `nodemon` a development tool to automatically reload the environment when source files change.
 
 ```bash
-npm i -g typescript
-npm i -D typescript
-npm i -D @types/node
-npm i -D ts-node
-npm i -D nodemon
+npm i -D typescript @types/node ts-node nodemon
 ```
 
 ## Creating a tsconfig.json file.
@@ -62,6 +58,7 @@ At the very least, it is necessary to set the `src` and `dist` directories in th
     "module": "commonjs",
     "allowJs": true, 
     "checkJs": true, 
+    "outDir": "./dist",
     "rootDir": "./src",
     "strict": true, 
     "moduleResolution": "node",
