@@ -18,7 +18,8 @@ To facilitate the development, we can use the Remote Containers extension in VS 
 "forwardPorts": [
 		8080,
 		9090,
-		5000
+		5000,
+		3000
 	],
 ```
 
