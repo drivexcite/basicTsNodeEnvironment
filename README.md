@@ -81,6 +81,20 @@ At the very least, it is necessary to set the `src` and `dist` directories in th
 - Run ```yarn add typescript```
 - Take the ```src/server/httpUtils.js``` and rename it with a ```ts``` extension
 - Annotate the parameters of the ```getTopics``` function and add type annotations; they should look like ```getTopics(skip: number, top: number)```
-- Run  ```yarn start``; the runner will automatically create a ```ts.config``` file with good defaults.
+- Run  ```yarn start```; the runner will automatically create a ```ts.config``` file with good defaults.
 
 And that's it. The application has been migrated to TS!
+
+For a slightly more elaborated example, change the signature of the function as follows:
+```typescript
+export async function getTopics(skip: number, top: number): Promise<TopicCollection> {
+    var result = await axios.get(`http://localhost:9090/topics?skip=${skip}&top=${top}`);
+
+    if (result.status === 200)
+        return result.data;
+
+    return { topics: [], pagination: { count: 0, skip: 0, top: 0 } };
+}
+```
+
+Go to the ```App.js``` file and notice how without changing module imports, or anything, the type information from this method is available in the VS Code autocomplete, with the type information of each property of every object returned by ```getTopics```.
