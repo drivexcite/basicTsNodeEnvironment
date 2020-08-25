@@ -21,21 +21,18 @@ function TopicTable() {
   const [page, setPage] = useState(0);
   const [topics, setTopics] = useState([]);
 
-  async function fetchTopics() {
+  const fetchTopics = async () => {
     const result = await getTopics(skip, rowsPerPage);
-    const topics = result.data.topics;
-    const pagination = result.data.pagination;
+    const topics = result.topics;
+    const pagination = result.pagination;
 
     setTopics(topics);
-
     setTotal(pagination.count);
-    setRowsPerPage(pagination.top);
-    setPage(Math.round(pagination.skip / pagination.top));
-  }
+  };
 
   useEffect(() => {
     fetchTopics();
-  });
+  }, [page, rowsPerPage]);
 
   const columns = [
     { id: 'topicSurrogateId', label: 'Id', minWidth: 50, align: 'left' },
@@ -65,7 +62,6 @@ function TopicTable() {
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
-    setPage(0);
   };
 
   return (
