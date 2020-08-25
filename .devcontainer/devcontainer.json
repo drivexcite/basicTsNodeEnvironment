@@ -22,7 +22,8 @@
 	"forwardPorts": [
 		8080,
 		9090,
-		5000
+		5000,
+		3000
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
