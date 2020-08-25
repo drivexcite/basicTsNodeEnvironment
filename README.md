@@ -77,7 +77,7 @@ At the very least, it is necessary to set the `src` and `dist` directories in th
     "start-dev": "nodemon --exec ts-node src/index.ts"
   },
 ```
-## Adding typescript to an existing CRA app.
+## Adding typescript to an existing CRA app (this code base).
 - Run ```yarn add typescript```
 - Take the ```src/server/httpUtils.js``` and rename it with a ```ts``` extension
 - Annotate the parameters of the ```getTopics``` function and add type annotations; they should look like ```getTopics(skip: number, top: number)```
