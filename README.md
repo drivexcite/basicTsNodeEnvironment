@@ -77,3 +77,10 @@ At the very least, it is necessary to set the `src` and `dist` directories in th
     "start-dev": "nodemon --exec ts-node src/index.ts"
   },
 ```
+## Adding typescript to an existing CRA app.
+- Run ```yarn add typescript```
+- Take the ```src/server/httpUtils.js``` and rename it with a ```ts``` extension
+- Annotate the parameters of the ```getTopics``` function and add type annotations; they should look like ```getTopics(skip: number, top: number)```
+- Run  ```yarn start``; the runner will automatically create a ```ts.config``` file with good defaults.
+
+And that's it. The application has been migrated to TS!
